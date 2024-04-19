@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pokeapi/guides/pokemons-web-service"
+           targetNamespace="http://pokeapi/guides/pokemons-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getAllPokemonRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="page" type="xs:integer" default="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPokemonInfoByNameRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getPokemonInfoByNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="jsonData" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAllPokemonResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pokemon" type="tns:pokemon" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="pokemon">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="url" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
